@@ -60,6 +60,7 @@ def mqtt(data):
     time.sleep(4)
     client.disconnect()  # disconnect
     client.loop_stop()  # stop loop
+    print('prepare shutdown')
     os.system("shutdown /s /t 1")
 
 
