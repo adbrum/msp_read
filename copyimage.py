@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import os
+#import os
 
 HOST = "lisimetro@94.62.172.88:"
 PORT = "1022"

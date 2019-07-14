@@ -3,7 +3,7 @@ from picamera import PiCamera
 from time import sleep
 import datetime
 from copyimage import copyImage
-import os.path
+
 
 PATH = "/home/pi/lisimetro/image/"
 
@@ -22,7 +22,7 @@ def takePhoto():
 
 
 def main():
-    takePhotos()
+    takePhoto()
 
 
 if __name__ == "__main__":

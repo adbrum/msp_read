@@ -1,10 +1,12 @@
 import time
-from datetime import datetime
 import paho.mqtt.client as paho
 import serial
 import re
 import json
+import os
+from datetime import datetime
 from camera import takePhoto
+
 
 # this port address is for the serial tx/rx pins on the GPIO header
 SERIAL_PORT = "/dev/ttyS0"
@@ -58,6 +60,7 @@ def mqtt(data):
     time.sleep(4)
     client.disconnect()  # disconnect
     client.loop_stop()  # stop loop
+    os.system("shutdown /s /t 1")
 
 
 def main():
