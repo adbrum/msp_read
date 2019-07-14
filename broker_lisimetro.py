@@ -61,7 +61,7 @@ def mqtt(data):
     client.disconnect()  # disconnect
     client.loop_stop()  # stop loop
     print('prepare shutdown')
-    os.system("shutdown now")
+    os.system("sudo shutdown now -h")
 
 
 def main():
