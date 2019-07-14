@@ -52,7 +52,7 @@ def mqtt(data):
     # create client object client1.on_publish = on_publish #assign function to callback client1.connect(broker,port) #establish connection client1.publish("house/bulb1","on")
     client = paho.Client("client-001")
     print("connecting to broker ", broker)
-    client.connect(broker, 2880, 60)  # connect
+    client.connect(broker, 1883, 60)  # connect
     client.loop_start()  # start loop to process received messages
     #print("subscribing ")
     client.subscribe(topic)  # subscribe
