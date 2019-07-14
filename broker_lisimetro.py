@@ -4,6 +4,7 @@ import paho.mqtt.client as paho
 import serial
 import re
 import json
+from camera import takePhoto
 
 # this port address is for the serial tx/rx pins on the GPIO header
 SERIAL_PORT = "/dev/ttyS0"
@@ -12,13 +13,12 @@ SERIAL_RATE = 9600
 
 
 def mqtt(data):
-    print('DATA: ', data)
+    takePhoto()
+
     keys = ["ID", "STA", "SHA", "SLA", "STS1", "STS2",
             "STS3", "SHS1", "SHS2", "SHS3", "SPL", "SPR", "SVB"]
     values = re.split("\s+", data)
-    values = [x for x in values if x]  # remove itens nulos
-    #print("KEYS: ", keys)
-    #print("VALUES: ", values)
+    values = [x for x in values if x]  # remove null items
     new_dict = dict(zip(keys, values))
     new_dict["TIME"] = str(datetime.now())
     print("received message =", new_dict)
@@ -39,26 +39,17 @@ def mqtt(data):
         "SHS1": new_dict["SHS1"][2:3] + "." + new_dict["SVB"][4:],
         "SHS2": new_dict["SHS2"][2:3] + "." + new_dict["SVB"][4:],
         "SHS3": new_dict["SHS3"][2:3] + "." + new_dict["SVB"][4:]
-        }
+    }
 
     data = json.dumps(data, ensure_ascii=True)
     print("JSON DUMP =", data)
-    #data = json.loads(str(data))
-    #print("JSON LOADS =", data)
-    #broker = "94.62.172.88"
     broker = "94.62.172.88"
     # reading is a string...do whatever you want from here
-    # print(reading)
-    # create client object client1.on_publish = on_publish #assign function to callback client1.connect(broker,port) #establish connection client1.publish("house/bulb1","on")
     client = paho.Client("client-001")
     print("connecting to broker ", broker)
     client.connect(broker, 1883, 60)  # connect
     client.loop_start()  # start loop to process received messages
-    #print("subscribing ")
     client.subscribe(topic)  # subscribe
-    # time.sleep(2)
-    #print("publishing ")
-    #client.publish(topic, "{\"" + topic + "\"" + ":" + data.replace("\"", "\"") + "}")  # publish
     client.publish(topic, data)  # publish
     time.sleep(4)
     client.disconnect()  # disconnect
@@ -66,7 +57,6 @@ def mqtt(data):
 
 
 def main():
-    print('MAIN')
     ser = serial.Serial(SERIAL_PORT, SERIAL_RATE)
     while True:
         # using ser.readline() assumes each line contains a single reading
