@@ -13,7 +13,11 @@ SERIAL_RATE = 9600
 
 
 def mqtt(data):
-    takePhoto()
+
+    try:
+        takePhoto()
+    except Exception as e:
+        print("type error: " + str(e) + " problem with camera!")
 
     keys = ["ID", "STA", "SHA", "SLA", "STS1", "STS2",
             "STS3", "SHS1", "SHS2", "SHS3", "SPL", "SPR", "SVB"]
