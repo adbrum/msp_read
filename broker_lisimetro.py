@@ -33,23 +33,24 @@ def mqtt(data):
     data = {
         "ID": new_dict["ID"],
         "TIME": new_dict["TIME"],
-        "SVB": new_dict["SVB"][2] + "." + new_dict["SVB"][3:],
-        "STA": new_dict["STA"][2] + "." + new_dict["SVB"][3:],
+        "SVB": new_dict["SVB"][1] + "." + new_dict["SVB"][3:],
+        "STA": new_dict["STA"][3] + "." + new_dict["SVB"][4:],
         "SHA": new_dict["SHA"][3:4] + "." + new_dict["SVB"][5:],
         "SLA": new_dict["SLA"][2:],
-        "SPL": new_dict["SPL"][1:2] + "." + new_dict["SVB"][3:],
+        "SPL": new_dict["SPL"][1:3] + "." + new_dict["SVB"][5:],
         "SPR": new_dict["SPR"][2] + "." + new_dict["SVB"][3:],
-        "STS1": new_dict["STS1"][3:4] + "." + new_dict["SVB"][5:],
-        "STS2": new_dict["STS2"][2:3] + "." + new_dict["SVB"][4:],
-        "STS3": new_dict["STS3"][2:3] + "." + new_dict["SVB"][4:],
-        "SHS1": new_dict["SHS1"][2:3] + "." + new_dict["SVB"][4:],
-        "SHS2": new_dict["SHS2"][2:3] + "." + new_dict["SVB"][4:],
-        "SHS3": new_dict["SHS3"][2:3] + "." + new_dict["SVB"][4:]
+        "STS1": new_dict["STS1"][2:4] + "." + new_dict["SVB"][5:],
+        "STS2": new_dict["STS2"][2:4] + "." + new_dict["SVB"][5:],
+        "STS3": new_dict["STS3"][2:4] + "." + new_dict["SVB"][5:],
+        "SHS1": new_dict["SHS1"][2:4] + "." + new_dict["SVB"][5:],
+        "SHS2": new_dict["SHS2"][2:4] + "." + new_dict["SVB"][5:],
+        "SHS3": new_dict["SHS3"][2:4] + "." + new_dict["SVB"][5:]
     }
 
     data = json.dumps(data, ensure_ascii=True)
     print("JSON DUMP =", data)
-    broker = "94.62.172.88"
+    #broker = "94.62.172.88"
+    broker = "188.37.176.54"
     # reading is a string...do whatever you want from here
     client = paho.Client("client-001")
     print("connecting to broker ", broker)
@@ -61,7 +62,7 @@ def mqtt(data):
     client.disconnect()  # disconnect
     client.loop_stop()  # stop loop
     print('prepare shutdown')
-    os.system("sudo shutdown now -h")
+    #os.system("sudo shutdown now -h")
 
 
 def main():

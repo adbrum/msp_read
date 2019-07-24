@@ -8,4 +8,4 @@ SERVER_PATH = "~/image/"
 
 
 def copyImage(name):
-    print("scp -P " + PORT + " " + SERVER_PATH + name + " " + HOST + LOCAL_PATH)
+    print("scp -P " + PORT + " " + LOCAL_PATH + name + " " + HOST + SERVER_PATH)
