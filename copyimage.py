@@ -1,10 +1,10 @@
 #!/usr/bin/python
 #import os
 
-HOST = "lisimetro@94.62.172.88:"
+HOST = "lisimetro@ietsis.dynu.net:"
 PORT = "1022"
-LOCAL_PATH = "~/image/"
-SERVER_PATH = "~/image/"
+LOCAL_PATH = "/home/pi/lisimetro/image"
+SERVER_PATH = "/home/lisimetro/image"
 
 
 def copyImage(name):

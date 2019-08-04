@@ -9,7 +9,7 @@ from camera import takePhoto
 
 
 # this port address is for the serial tx/rx pins on the GPIO header
-SERIAL_PORT = "/dev/ttyS0"
+SERIAL_PORT = "/dev/ttyAMA0"
 # be sure to set this to the same rate used on the Arduino
 SERIAL_RATE = 9600
 
@@ -50,7 +50,7 @@ def mqtt(data):
     data = json.dumps(data, ensure_ascii=True)
     print("JSON DUMP =", data)
     #broker = "94.62.172.88"
-    broker = "188.37.176.54"
+    broker = "ietsis.dynu.net"
     # reading is a string...do whatever you want from here
     client = paho.Client("client-001")
     print("connecting to broker ", broker)
