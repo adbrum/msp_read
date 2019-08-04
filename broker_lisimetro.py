@@ -50,7 +50,7 @@ def mqtt(data):
     data = json.dumps(data, ensure_ascii=True)
     print("JSON DUMP =", data)
     #broker = "94.62.172.88"
-    broker = "ietsis.dynu.net"
+    broker = "ietsis.dynup.net"
     # reading is a string...do whatever you want from here
     client = paho.Client("client-001")
     print("connecting to broker ", broker)

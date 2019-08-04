@@ -6,17 +6,18 @@ from copyimage import copyImage
 
 
 PATH = "/home/pi/lisimetro/image/"
+PHOTO = "%Y-%m-%d_%H-%M-%S_%f"
 
 
 def takePhoto():
 
     camera = PiCamera()
-    name_photo = datetime.datetime.now().strftime('%Y-%m-%d_%H:%M:%S.%f.jpg')
-    sleep(5)
+    name_photo = datetime.datetime.now().strftime(PHOTO) + ".jpg"
+    #print(name_photo)
     try:
-        camera.capture(PATH + " " + name_photo)
+        camera.capture(PATH + name_photo)
+        sleep(5)
         copyImage(name_photo)
-        sleep(2)
     except Exception as e:
         print("type error: " + str(e))
 
