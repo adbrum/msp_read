@@ -33,19 +33,35 @@ def mqtt(data):
     data = {
         "ID": new_dict["ID"],
         "TIME": new_dict["TIME"],
-        "SVB": new_dict["SVB"][2] + "." + new_dict["SVB"][3:],
-        "STA": new_dict["STA"][2] + "." + new_dict["SVB"][3:],
-        "SHA": new_dict["SHA"][3:4] + "." + new_dict["SVB"][5:],
-        "SLA": new_dict["SLA"][2:],
-        "SPL": new_dict["SPL"][1:2] + "." + new_dict["SVB"][3:],
-        "SPR": new_dict["SPR"][2] + "." + new_dict["SVB"][3:],
-        "STS1": new_dict["STS1"][3:4] + "." + new_dict["SVB"][5:],
-        "STS2": new_dict["STS2"][2:3] + "." + new_dict["SVB"][4:],
-        "STS3": new_dict["STS3"][2:3] + "." + new_dict["SVB"][4:],
-        "SHS1": new_dict["SHS1"][2:3] + "." + new_dict["SVB"][4:],
-        "SHS2": new_dict["SHS2"][2:3] + "." + new_dict["SVB"][4:],
-        "SHS3": new_dict["SHS3"][2:3] + "." + new_dict["SVB"][4:]
+        "SVB": new_dict["SVB"],
+        "STA": new_dict["STA"],
+        "SHA": new_dict["SHA"],
+        "SLA": new_dict["SLA"],
+        "SPL": new_dict["SPL"],
+        "SPR": new_dict["SPR"],
+        "STS1": new_dict["STS1"],
+        "STS2": new_dict["STS2"],
+        "STS3": new_dict["STS3"],
+        "SHS1": new_dict["SHS1"],
+        "SHS2": new_dict["SHS2"],
+        "SHS3": new_dict["SHS3"]
     }
+    # data = {
+    #     "ID": new_dict["ID"],
+    #     "TIME": new_dict["TIME"],
+    #     "SVB": new_dict["SVB"][2] + "." + new_dict["SVB"][3:],
+    #     "STA": new_dict["STA"][2] + "." + new_dict["SVB"][3:],
+    #     "SHA": new_dict["SHA"][3:4] + "." + new_dict["SVB"][5:],
+    #     "SLA": new_dict["SLA"][2:],
+    #     "SPL": new_dict["SPL"][1:2] + "." + new_dict["SVB"][3:],
+    #     "SPR": new_dict["SPR"][2] + "." + new_dict["SVB"][3:],
+    #     "STS1": new_dict["STS1"][3:4] + "." + new_dict["SVB"][5:],
+    #     "STS2": new_dict["STS2"][2:3] + "." + new_dict["SVB"][4:],
+    #     "STS3": new_dict["STS3"][2:3] + "." + new_dict["SVB"][4:],
+    #     "SHS1": new_dict["SHS1"][2:3] + "." + new_dict["SVB"][4:],
+    #     "SHS2": new_dict["SHS2"][2:3] + "." + new_dict["SVB"][4:],
+    #     "SHS3": new_dict["SHS3"][2:3] + "." + new_dict["SVB"][4:]
+    # }
 
     data = json.dumps(data, ensure_ascii=True)
     print("JSON DUMP =", data)
