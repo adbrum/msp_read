@@ -1,11 +1,14 @@
 #!/usr/bin/python
-#import os
+import os
 
-HOST = "lisimetro@94.62.172.88:"
+HOST = "lisimetro@ietsis.dynu.net:"
 PORT = "1022"
-LOCAL_PATH = "~/image/"
-SERVER_PATH = "~/image/"
+LOCAL_PATH = "/home/pi/lisimetro/image/"
+SERVER_PATH = "/home/lisimetro/image"
 
 
 def copyImage(name):
-    print("scp -P " + PORT + " " + SERVER_PATH + name + " " + HOST + LOCAL_PATH)
+    os.system("scp -P " + PORT + " " + LOCAL_PATH + name + " " + HOST + SERVER_PATH)
+    os.system("rm " + LOCAL_PATH + name)
+    #os.system("mv " + LOCAL_PATH + name + " " + HOST + PORT + SERVER_PATH + name)
+    print("Done!")
