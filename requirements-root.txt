@@ -1,0 +1,14 @@
+gpiozero==1.5.0
+gunicorn==19.9.0
+more-itertools==7.0.0
+paho-mqtt==1.4.0
+pathlib2==2.3.3
+picamera==1.13
+pigpio==1.42
+pluggy==0.9.0
+pyserial==3.4
+pytest==4.4.0
+RPi.GPIO==0.6.5
+RPIO==0.10.0
+static3==0.7.0
+
