@@ -10,8 +10,8 @@ SERVER_PATH = "/home/lisimetro/image"
 
 def copyImage():
     print("scp -P "+ PORT + " " + LOCAL_PATH + "*.jpg " + HOST + SERVER_PATH)
-    os.system("scp -P " + PORT + " " + LOCAL_PATH + "*.jpg " + HOST + SERVER_PATH)
-    os.system("rm " + LOCAL_PATH + "*.jpg")
+    os.system("scp -r -P " + PORT + " " + LOCAL_PATH + "*.* " + HOST + SERVER_PATH)
+    os.system("rm " + LOCAL_PATH + "*.*")
     print("Done!")
 
 def main():
